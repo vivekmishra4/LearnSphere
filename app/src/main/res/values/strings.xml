@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">sdc_app</string>
+    <string name="input_username">Enter Username</string>
+    <string name="input_password">Enter Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="home_page">Home Page</string>
+    <string name="input_email">Enter Email</string>
+</resources>
