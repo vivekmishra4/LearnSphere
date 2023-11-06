@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "714236235716",
+    "project_id": "sdc-app-6aa10",
+    "storage_bucket": "sdc-app-6aa10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714236235716:android:63ca394cd2d6915561de91",
+        "android_client_info": {
+          "package_name": "com.example.sdc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiza93kykd6zBI-eJ68gsmxCYvNwdcJQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

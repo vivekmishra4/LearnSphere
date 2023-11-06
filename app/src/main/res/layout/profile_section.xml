@@ -4,16 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#BF98F6"
     tools:context=".ProfileSection">
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/my_button"
-        android:text="I am button"
         android:layout_centerInParent="true"
-        android:textSize="24sp" />
+        android:orientation="vertical"
+        android:id="@+id/profile_items">
+
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="30sp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:id="@+id/profile_name"
+          android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_out_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        android:textSize="24sp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/profile_items"/>
 
 
 </RelativeLayout>

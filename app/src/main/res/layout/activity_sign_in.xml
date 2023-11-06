@@ -14,13 +14,20 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sign_in_username"
+            android:id="@+id/sign_in_email"
+            android:inputType="textEmailAddress"
             android:hint="@string/input_username"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sign_in_password"
+            android:inputType="textPassword"
             android:hint="@string/input_password"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign_in_show_password"
+            android:text="@string/show_password"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
