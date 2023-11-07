@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sdc_app</string>
+    <string name="app_name">LearnSphere</string>
     <string name="input_username">Enter Username</string>
     <string name="input_password">Enter Password</string>
     <string name="sign_in">Sign in</string>
