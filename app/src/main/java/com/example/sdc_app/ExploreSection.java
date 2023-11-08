@@ -18,6 +18,8 @@ public class ExploreSection extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=LayoutInflater.from(getContext()).inflate(R.layout.explore_section,container,false);
+
+
         return view;
     }
 }

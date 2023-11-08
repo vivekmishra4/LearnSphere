@@ -3,10 +3,12 @@
     <style name="Base.Theme.Sdc_app" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorPrimary">#3335D5</item>
+        <item name="colorSecondary">#C3B3B3</item>
     </style>
 
     <style name="Theme.Sdc_app" parent="Base.Theme.Sdc_app" />
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
     </style>
 </resources>
