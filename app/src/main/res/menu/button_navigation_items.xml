@@ -4,27 +4,27 @@
 
     <item
         android:id="@+id/explore"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/logo_explore"
         app:showAsAction="withText"
         android:title="explore" />
     <item
         android:id="@+id/assessment"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/logo_assessment"
         android:title="assessment" />
 
     <item
         android:id="@+id/enrollment"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/logo_enrollment"
         app:showAsAction="withText"
         android:title="enrollment" />
     <item
         android:id="@+id/community"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/logo_community"
         app:showAsAction="withText"
         android:title="community" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/logo_profile"
         app:showAsAction="withText"
         android:title="profile" />
 

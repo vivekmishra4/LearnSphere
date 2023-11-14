@@ -1,4 +1,4 @@
-package com.example.sdc_app;
+package com.example.sdc_app.assessment;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.sdc_app.R;
 
 public class AssessmentSection extends Fragment {
     public AssessmentSection(){

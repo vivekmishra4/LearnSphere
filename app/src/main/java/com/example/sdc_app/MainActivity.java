@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.sdc_app.assessment.AssessmentSection;
+import com.example.sdc_app.community.CommunitySection;
+import com.example.sdc_app.enrollment.EnrollmentSection;
+import com.example.sdc_app.explore.ExploreSection;
+import com.example.sdc_app.profile.ProfileSection;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
         bottomNavigationView.getMenu().getItem(2).setChecked(true);
+        setFragment(new EnrollmentSection());
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

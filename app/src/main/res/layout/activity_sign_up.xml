@@ -4,16 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Sign Up Page"
+        android:gravity="center_horizontal"
+        android:textColor="@color/textLabelText"
+        android:textSize="30sp"
+        android:background="@color/textLabelBackground"
+        android:textStyle="bold"
+        android:id="@+id/sign_up_page_title"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:id="@+id/sign_up_page_logo"
+        android:layout_below="@+id/sign_up_page_title"
+        android:src="@drawable/logo_sign_up"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_below="@id/sign_up_page_logo"
         android:id="@+id/sign_up_items"
         android:orientation="vertical">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sign_up_name"
+            android:inputType="text"
             android:hint="@string/enter_name"/>
         <EditText
             android:layout_width="match_parent"

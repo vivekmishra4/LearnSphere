@@ -1,4 +1,4 @@
-package com.example.sdc_app;
+package com.example.sdc_app.enrollment;
 
 
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.sdc_app.MyAdapter;
+import com.example.sdc_app.MyItem;
+import com.example.sdc_app.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +54,6 @@ public class EnrollmentSection extends Fragment {
         itemList.add(new MyItem(R.drawable.app_logo_icon_foreground,"Hack Your System","offered by sheru University"));
         itemList.add(new MyItem(R.drawable.app_logo_icon_foreground,"Hack Your System","offered by sheru University"));
         itemList.add(new MyItem(R.drawable.app_logo_icon_foreground,"Hack Your System","offered by sheru University"));
-
 
         recyclerView.setAdapter(adapter);
         return view;
