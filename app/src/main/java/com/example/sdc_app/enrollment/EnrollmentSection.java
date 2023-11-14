@@ -1,6 +1,7 @@
 package com.example.sdc_app.enrollment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,8 @@ public class EnrollmentSection extends Fragment {
         MyAdapter adapter = new MyAdapter(itemList, new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(MyItem item) {
+                Intent intent=new Intent(getContext(), PDFActivity.class);
+                startActivity(intent);
                 // Handle item click here
                 Toast.makeText(getContext(), "Clicked: " + item.getText1(), Toast.LENGTH_SHORT).show();
             }
