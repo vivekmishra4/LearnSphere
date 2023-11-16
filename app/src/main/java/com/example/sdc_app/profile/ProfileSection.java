@@ -16,11 +16,17 @@ import com.example.sdc_app.R;
 import com.example.sdc_app.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileSection extends Fragment {
     TextView email,name;
     Button signOut;
     FirebaseAuth mAuth;
+    DatabaseReference databaseReference;
     public ProfileSection(){
 
     }
@@ -32,6 +38,15 @@ public class ProfileSection extends Fragment {
         email=view.findViewById(R.id.profile_email);
         name=view.findViewById(R.id.profile_name);
         signOut=view.findViewById(R.id.sign_out_btn);
+        databaseReference= FirebaseDatabase.getInstance().getReference("course");
+        List<AddQuestion> questionList=new ArrayList<>();
+        questionList.add(new AddQuestion("Who is prime minister of India","Nehru","Gandhi","Jinnah","Modi","Modi"));
+        questionList.add(new AddQuestion("Who is Chief minister","shashi","sharan","manish","vatsal","vatsal"));
+        List<AddTopic> topicList=new ArrayList<>();
+        topicList.add(new AddTopic("Topic-1","topic.pdf",questionList));
+        topicList.add(new AddTopic("Topic-2","topic.pdf",questionList));
+        AddCourse course=new AddCourse("Android Java","This course is given to CS","OU","123","4.5","CS",topicList);
+        databaseReference.child("c3").setValue(course);
         mAuth=FirebaseAuth.getInstance();
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
