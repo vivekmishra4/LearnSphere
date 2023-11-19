@@ -29,5 +29,15 @@ public class AddTopic {
         return fileLink;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setFileLink(String fileLink) {
+        this.fileLink = fileLink;
+    }
+
+    public void setTestQuestions(List<AddQuestion> testQuestions) {
+        this.testQuestions = testQuestions;
+    }
 }

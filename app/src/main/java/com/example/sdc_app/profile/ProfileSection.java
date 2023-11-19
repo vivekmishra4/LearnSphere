@@ -6,14 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sdc_app.R;
 import com.example.sdc_app.SignInActivity;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +28,8 @@ import java.util.List;
 public class ProfileSection extends Fragment {
     TextView email,name;
     Button signOut;
+    RecyclerView listOfCourses;
+    ImageView addCourse;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
     public ProfileSection(){
@@ -34,10 +39,13 @@ public class ProfileSection extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //Setting View IDs
         View view=LayoutInflater.from(getContext()).inflate(R.layout.profile_section,container,false);
         email=view.findViewById(R.id.profile_email);
         name=view.findViewById(R.id.profile_name);
         signOut=view.findViewById(R.id.sign_out_btn);
+        listOfCourses=view.findViewById(R.id.profile_list_of_courses);
+        addCourse=view.findViewById(R.id.add_new_course_icon);
         databaseReference= FirebaseDatabase.getInstance().getReference("course");
         List<AddQuestion> questionList=new ArrayList<>();
         questionList.add(new AddQuestion("Who is prime minister of India","Nehru","Gandhi","Jinnah","Modi","Modi"));
@@ -47,6 +55,15 @@ public class ProfileSection extends Fragment {
         topicList.add(new AddTopic("Topic-2","topic.pdf",questionList));
         AddCourse course=new AddCourse("Android Java","This course is given to CS","OU","123","4.5","CS",topicList);
         databaseReference.child("c3").setValue(course);
+        addCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),CourseAddActivity.class);
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
+                getActivity().startActivity(intent);
+            }
+        });
+        //Sign Out Button
         mAuth=FirebaseAuth.getInstance();
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override

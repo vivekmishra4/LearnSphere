@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".profile.NewCourse">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_add_title"
+        android:textSize="30sp"
+        android:textColor="@color/textLabelText"
+        android:background="@color/textLabelBackground"
+        android:gravity="center_horizontal"
+        android:text="Enter New Course Details"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Course Name"
+        android:layout_below="@+id/course_add_title"
+        android:id="@+id/edit_course_name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Course Description"
+        android:layout_below="@+id/edit_course_name"
+        android:id="@+id/edit_course_description"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/course_add_topic"
+        android:layout_below="@id/edit_course_description"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="340sp"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:text="List Of Topics"
+            android:id="@+id/list_of_topics_heading"/>
+
+        <ImageView
+            android:id="@+id/add_new_topic_icon"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_horizontal"
+            android:tooltipText="Add Topic"
+            android:src="@drawable/add_icon" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_list_of_courses"
+        android:layout_below="@+id/course_add_topic"
+        android:layout_above="@+id/submit_course_btn"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/submit_course_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="Submit Course" />
+
+</RelativeLayout>

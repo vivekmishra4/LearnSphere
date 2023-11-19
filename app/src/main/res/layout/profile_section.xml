@@ -7,10 +7,13 @@
     tools:context=".profile.ProfileSection">
 
     <ImageView
+        android:id="@+id/profile_image"
         android:layout_width="120dp"
         android:layout_height="136dp"
-        android:layout_above="@+id/profile_items"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="145dp"
         android:layout_marginBottom="14dp"
         android:src="@drawable/logo_profile" />
 
@@ -18,7 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/profile_image"
         android:orientation="vertical"
         android:id="@+id/profile_items">
 
@@ -35,7 +38,18 @@
           android:id="@+id/profile_name"
           android:textSize="30sp"/>
 
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/profile_edit_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/profile_items"
+        android:layout_alignParentEnd="true"
+        android:text="Edit Details" />
 
     <Button
         android:id="@+id/sign_out_btn"
@@ -43,8 +57,38 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_out"
         android:textSize="24sp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/profile_items"/>
+        android:layout_below="@+id/profile_edit_details"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:layout_marginTop="13dp"
+        android:id="@+id/course_add_items"
+        android:layout_below="@id/sign_out_btn"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="340sp"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:text="List Of courses"
+            android:id="@+id/list_of_courses_heading"/>
+
+        <ImageView
+            android:id="@+id/add_new_course_icon"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_horizontal"
+            android:tooltipText="Add Course"
+            android:src="@drawable/add_icon" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_list_of_courses"
+        android:layout_below="@+id/course_add_items"
+        android:layout_marginTop="10dp" />
 
 
 </RelativeLayout>
