@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,11 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sdc_app.R;
 import com.example.sdc_app.SignInActivity;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class ProfileSection extends Fragment {
     ImageView addCourse;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
+    FirebaseDatabase database;
     public ProfileSection(){
 
     }
@@ -44,8 +48,9 @@ public class ProfileSection extends Fragment {
         email=view.findViewById(R.id.profile_email);
         name=view.findViewById(R.id.profile_name);
         signOut=view.findViewById(R.id.sign_out_btn);
-        listOfCourses=view.findViewById(R.id.profile_list_of_courses);
+        listOfCourses=view.findViewById(R.id.profile_list_of_topics);
         addCourse=view.findViewById(R.id.add_new_course_icon);
+        addCourse.setVisibility(View.GONE);
         databaseReference= FirebaseDatabase.getInstance().getReference("course");
         List<AddQuestion> questionList=new ArrayList<>();
         questionList.add(new AddQuestion("Who is prime minister of India","Nehru","Gandhi","Jinnah","Modi","Modi"));
@@ -78,11 +83,44 @@ public class ProfileSection extends Fragment {
         });
 
         FirebaseUser user=mAuth.getCurrentUser();
+        database=FirebaseDatabase.getInstance();
         if(user!=null){
             email.setText(user.getEmail());
             name.setText(user.getDisplayName());
+            String uid=user.getUid();
+            database.getReference("user_roles").child(uid)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String role=snapshot.child("role").getValue(String.class);
+                            if(snapshot.exists()) {
+                                if("admin".equals(role)){
+                                    //User is admin
+                                    addCourse.setVisibility(View.VISIBLE);
+
+                                }
+                                else {
+                                    //User is not admin
+                                    addCourse.setVisibility(View.GONE);
+
+                                }
+
+                            }
+                            else {
+                                //User role doesn't exist
+                                addCourse.setVisibility(View.GONE);
+
+                            }
+                        }
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(getActivity(), "Unable to get role of user", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
 
         }
+
+
         return view;
     }
 }

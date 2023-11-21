@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LearnSphere</string>
-    <string name="input_username">Enter Username</string>
+    <string name="input_user_email">Enter Email</string>
     <string name="input_password">Enter Password</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign Up</string>

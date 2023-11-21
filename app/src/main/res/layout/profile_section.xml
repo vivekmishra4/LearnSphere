@@ -86,7 +86,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/profile_list_of_courses"
+        android:id="@+id/profile_list_of_topics"
         android:layout_below="@+id/course_add_items"
         android:layout_marginTop="10dp" />
 

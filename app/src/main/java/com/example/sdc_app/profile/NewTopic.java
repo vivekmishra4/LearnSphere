@@ -92,7 +92,10 @@ public class NewTopic extends Fragment {
             public void onClick(View v) {
                 AddTopic topic=new AddTopic(topicName.getText().toString(),contentLink.getText().toString(),questionList);
                 sharedViewModel.setSharedTopicData(topic);
-                requireActivity().getSupportFragmentManager().beginTransaction().remove(NewTopic.this).commit();
+                //This will navigate back to previous fragment
+                requireActivity().getSupportFragmentManager().popBackStack();
+                //This removes the current fragment,but makes the screen blank(without fragment)
+//                requireActivity().getSupportFragmentManager().beginTransaction().remove(NewTopic.this).commit();
             }
         });
 

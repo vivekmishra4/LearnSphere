@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sign_in_email"
             android:inputType="textEmailAddress"
-            android:hint="@string/input_username"/>
+            android:hint="@string/input_user_email"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

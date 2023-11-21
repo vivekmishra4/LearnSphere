@@ -38,7 +38,7 @@ public class ExploreSection extends Fragment {
         recyclerView=view.findViewById(R.id.explore_recycler_view);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        database= FirebaseDatabase.getInstance().getReference("courses");
+        database= FirebaseDatabase.getInstance().getReference("course");
         List<MyCourse> courseList=new ArrayList<>();
 
         courseAdapter=new CourseAdapter(getContext(), courseList, new CourseAdapter.OnItemClickListener() {

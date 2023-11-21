@@ -51,10 +51,10 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/profile_list_of_courses"
+        android:id="@+id/profile_list_of_topics"
         android:layout_below="@+id/course_add_topic"
         android:layout_above="@+id/submit_course_btn"
         android:layout_marginTop="10dp" />
