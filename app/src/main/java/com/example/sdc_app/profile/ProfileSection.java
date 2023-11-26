@@ -21,12 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProfileSection extends Fragment {
     TextView email,name;
@@ -34,8 +31,9 @@ public class ProfileSection extends Fragment {
     RecyclerView listOfCourses;
     ImageView addCourse;
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference;
     FirebaseDatabase database;
+    FirebaseUser user;
+    boolean admin;
     public ProfileSection(){
 
     }
@@ -45,31 +43,12 @@ public class ProfileSection extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //Setting View IDs
         View view=LayoutInflater.from(getContext()).inflate(R.layout.profile_section,container,false);
-        email=view.findViewById(R.id.profile_email);
-        name=view.findViewById(R.id.profile_name);
-        signOut=view.findViewById(R.id.sign_out_btn);
-        listOfCourses=view.findViewById(R.id.profile_list_of_topics);
-        addCourse=view.findViewById(R.id.add_new_course_icon);
-        addCourse.setVisibility(View.GONE);
-        databaseReference= FirebaseDatabase.getInstance().getReference("course");
-        List<AddQuestion> questionList=new ArrayList<>();
-        questionList.add(new AddQuestion("Who is prime minister of India","Nehru","Gandhi","Jinnah","Modi","Modi"));
-        questionList.add(new AddQuestion("Who is Chief minister","shashi","sharan","manish","vatsal","vatsal"));
-        List<AddTopic> topicList=new ArrayList<>();
-        topicList.add(new AddTopic("Topic-1","topic.pdf",questionList));
-        topicList.add(new AddTopic("Topic-2","topic.pdf",questionList));
-        AddCourse course=new AddCourse("Android Java","This course is given to CS","OU","123","4.5","CS",topicList);
-        databaseReference.child("c3").setValue(course);
-        addCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),CourseAddActivity.class);
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
-                getActivity().startActivity(intent);
-            }
-        });
-        //Sign Out Button
-        mAuth=FirebaseAuth.getInstance();
+        setAllIds(view);
+
+        setUserProfile();
+
+        //Setting Sign Out Button
+
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,8 +61,42 @@ public class ProfileSection extends Fragment {
             }
         });
 
-        FirebaseUser user=mAuth.getCurrentUser();
+
+        return view;
+    }
+    //This is for Normal Users
+    public void setAchievementsList(){
+        addCourse.setVisibility(View.GONE);
+
+    }
+    //This is for Admins
+    public void setCoursesList(){
+        addCourse.setVisibility(View.VISIBLE);
+        addCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),CourseAddActivity.class);
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
+                getActivity().startActivity(intent);
+            }
+        });
+
+    }
+    public void setAllIds(View view){
+        email=view.findViewById(R.id.profile_email);
+        name=view.findViewById(R.id.profile_name);
+        signOut=view.findViewById(R.id.sign_out_btn);
+        listOfCourses=view.findViewById(R.id.profile_list_of_topics);
+        addCourse=view.findViewById(R.id.add_new_course_icon);
+        addCourse.setVisibility(View.GONE);
+        mAuth=FirebaseAuth.getInstance();
+        user=mAuth.getCurrentUser();
         database=FirebaseDatabase.getInstance();
+
+
+    }
+    public void setUserProfile(){
+
         if(user!=null){
             email.setText(user.getEmail());
             name.setText(user.getDisplayName());
@@ -96,20 +109,20 @@ public class ProfileSection extends Fragment {
                             if(snapshot.exists()) {
                                 if("admin".equals(role)){
                                     //User is admin
-                                    addCourse.setVisibility(View.VISIBLE);
-
+                                    admin=true;
+                                    setCoursesList();
                                 }
                                 else {
                                     //User is not admin
-                                    addCourse.setVisibility(View.GONE);
-
+                                    admin=false;
+                                    setAchievementsList();
                                 }
 
                             }
                             else {
-                                //User role doesn't exist
-                                addCourse.setVisibility(View.GONE);
-
+                                //User is not admin
+                                admin=false;
+                                setAchievementsList();
                             }
                         }
                         public void onCancelled(@NonNull DatabaseError error) {
@@ -117,10 +130,7 @@ public class ProfileSection extends Fragment {
 
                         }
                     });
-
         }
 
-
-        return view;
     }
 }

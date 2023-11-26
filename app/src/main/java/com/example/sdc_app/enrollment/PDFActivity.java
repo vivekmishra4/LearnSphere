@@ -7,9 +7,6 @@ import android.os.Bundle;
 import com.example.sdc_app.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +22,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseViewHolder> {
         this.listener=listener;
     }
 
+    @NonNull
     public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.course_layout,parent,false);
         return new CourseViewHolder(view);

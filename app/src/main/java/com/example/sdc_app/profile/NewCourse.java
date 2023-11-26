@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -33,7 +34,9 @@ public class NewCourse extends Fragment {
     ImageView addNewTopicIcon;
     private SharedViewModel sharedViewModel;
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference;
+    FirebaseUser user;
+    DatabaseReference courseReference;
+    DatabaseReference adminReference;
     private ArrayAdapter<String> topicAdapter;
     private ListView topicsListView;
     List<AddTopic> topicList;
@@ -54,9 +57,10 @@ public class NewCourse extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //Setting View IDs
         View view = LayoutInflater.from(getContext()).inflate(R.layout.new_course, container, false);
-        databaseReference= FirebaseDatabase.getInstance().getReference("course");
+        courseReference= FirebaseDatabase.getInstance().getReference("course");
+        adminReference= FirebaseDatabase.getInstance().getReference("admin");
         mAuth=FirebaseAuth.getInstance();
-        FirebaseUser user=mAuth.getCurrentUser();
+        user=mAuth.getCurrentUser();
         courseName=view.findViewById(R.id.edit_course_name);
         courseDescription=view.findViewById(R.id.edit_course_description);
         submitCourse=view.findViewById(R.id.submit_course_btn);
@@ -73,34 +77,26 @@ public class NewCourse extends Fragment {
                 transaction.commit();
             }
         });
-        //Same-as Below method
-//        LiveData<AddTopic> liveData=sharedViewModel.getSharedTopicData();
-//        liveData.observe(getViewLifecycleOwner(), new Observer<AddTopic>() {
-//            @Override
-//            public void onChanged(AddTopic addTopic) {
-//                if(addTopic!=null){
-//                    topicList.add(addTopic);
-//                    Toast.makeText(getContext(),"Topic added",Toast.LENGTH_LONG).show();
-//                }
-//
-//            }
-//        });
-        sharedViewModel.getSharedTopicData().observe(getViewLifecycleOwner(), new Observer<AddTopic>() {
+
+        LiveData<AddTopic> liveData=sharedViewModel.getSharedTopicData();
+        liveData.observe(getViewLifecycleOwner(), new Observer<AddTopic>() {
             @Override
             public void onChanged(AddTopic addTopic) {
                 if(addTopic!=null){
                     topicList.add(addTopic);
                     Toast.makeText(getContext(),"Topic added",Toast.LENGTH_LONG).show();
-
                 }
+
             }
         });
+
         submitCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String key=databaseReference.push().getKey();
-                AddCourse course=new AddCourse(courseName.getText().toString(),courseDescription.getText().toString(),user.getDisplayName(),"123","4.5","CS",topicList);
-                databaseReference.child(key).setValue(course);
+                String key=courseReference.push().getKey();
+                AddCourse course=new AddCourse(key,courseName.getText().toString(),courseDescription.getText().toString(),user.getDisplayName(),"123","4.5","CS",topicList);
+                courseReference.child(key).setValue(course);
+                adminReference.child(user.getUid()).child(key).setValue("added");
                 getActivity().finish();
 
 

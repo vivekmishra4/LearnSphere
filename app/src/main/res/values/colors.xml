@@ -8,4 +8,6 @@
     <color name="red">#D31717</color>
     <color name="textLabelBackground">#C66464</color>
     <color name="textLabelText">#393434</color>
+    <color name="textColorPrimary">#DA8888</color>
+    <color name="textColorSecondary">#111111</color>
 </resources>

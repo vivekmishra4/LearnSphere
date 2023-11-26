@@ -11,11 +11,13 @@ public class AddCourse {
     private Object rating;
     private String courseType;
     private List<AddTopic> topics;
+    private String courseId;
     public AddCourse(){
         //For Firebase
     }
 
-    public AddCourse(String name, String description, String offeredBy,Object numRatings, Object rating, String courseType,List<AddTopic> topics) {
+    public AddCourse(String courseId,String name, String description, String offeredBy,Object numRatings, Object rating, String courseType,List<AddTopic> topics) {
+        this.courseId=courseId;
         this.name = name;
         this.description = description;
         this.offeredBy = offeredBy;
@@ -23,6 +25,10 @@ public class AddCourse {
         this.rating = rating;
         this.courseType = courseType;
         this.topics=topics;
+    }
+
+    public String getCourseId() {
+        return courseId;
     }
 
     public String getName() {

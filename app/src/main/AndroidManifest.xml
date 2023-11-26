@@ -15,6 +15,15 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".community.ChatViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".enrollment.CourseViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".profile.CourseAddActivity"
             android:exported="false" />
         <activity
