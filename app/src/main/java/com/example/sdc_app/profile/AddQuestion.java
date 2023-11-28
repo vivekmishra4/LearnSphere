@@ -1,6 +1,8 @@
 package com.example.sdc_app.profile;
 
-public class AddQuestion {
+import java.io.Serializable;
+
+public class AddQuestion implements Serializable {
     private String question;
     private String option1;
     private String option2;

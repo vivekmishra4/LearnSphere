@@ -37,7 +37,7 @@ public class CourseViewAdapter extends RecyclerView.Adapter<CourseViewAdapter.Co
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-                    listener.onItemClick(holder.takeTest);
+                    listener.onItemClick(holder.takeTest,holder.getAdapterPosition());
                 }
 
             }
@@ -46,7 +46,7 @@ public class CourseViewAdapter extends RecyclerView.Adapter<CourseViewAdapter.Co
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-                    listener.onItemClick(holder.contentLink);
+                    listener.onItemClick(holder.contentLink,holder.getAdapterPosition());
                 }
 
             }
@@ -73,6 +73,6 @@ public class CourseViewAdapter extends RecyclerView.Adapter<CourseViewAdapter.Co
         }
     }
     public interface OnItemClickListener {
-        void onItemClick(Button button);
+        void onItemClick(Button button,int position);
     }
 }

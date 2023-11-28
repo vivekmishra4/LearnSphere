@@ -15,6 +15,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".explore.ExploringCourseActivity"
+            android:exported="false" />
+        <activity
             android:name=".community.ChatViewActivity"
             android:exported="false" />
         <activity
@@ -22,6 +25,9 @@
             android:exported="false" />
         <activity
             android:name=".assessment.TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.ResultActivity"
             android:exported="false" />
         <activity
             android:name=".profile.CourseAddActivity"
