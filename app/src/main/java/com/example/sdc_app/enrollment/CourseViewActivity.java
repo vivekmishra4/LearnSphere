@@ -83,6 +83,7 @@ public class CourseViewActivity extends AppCompatActivity {
                     intent.putExtra("courseName",myCourse.getName());
                     intent.putExtra("courseId",myCourse.getCourseId());
                     intent.putExtra("topicId",String.valueOf(position));
+                    intent.putExtra("courseOfferedBy",myCourse.getOfferedBy());
                     startActivity(intent);
 
 

@@ -40,6 +40,7 @@ public class TestActivity extends AppCompatActivity {
     private String myNumQuestions;
     private String courseId;
     private String topicId;
+    private String offeredBy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,7 @@ public class TestActivity extends AppCompatActivity {
         myNumQuestions=String.valueOf(questions.size());
         courseId=intent.getStringExtra("courseId");
         topicId=intent.getStringExtra("topicId");
+        offeredBy=intent.getStringExtra("courseOfferedBy");
 
     }
 
@@ -116,6 +118,8 @@ public class TestActivity extends AppCompatActivity {
             intent.putExtra("score",score);
             intent.putExtra("courseId",courseId);
             intent.putExtra("topicId",topicId);
+            intent.putExtra("courseName",myCourseName);
+            intent.putExtra("courseOfferedBy",offeredBy);
             startActivity(intent);
             finish();
 

@@ -16,21 +16,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Android Development"
-            android:textSize="20sp"
+            android:textSize="23sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/course_offered_by"
+            android:layout_marginTop="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Osmania University"
-            android:textSize="14sp" />
-        <TextView
-            android:id="@+id/course_ratings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.2(234)"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

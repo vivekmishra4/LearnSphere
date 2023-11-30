@@ -4,6 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="14dp"
     tools:context=".explore.ExploringCourseActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course Name"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:id="@+id/explore_course_name"/>
+
+    <LinearLayout
+        android:id="@+id/explore_offered_by_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/explore_course_name"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/explore_offered_by_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:text="Offered By:" />
+        <TextView
+            android:id="@+id/explore_offered_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:text="Osmania University" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:padding="7dp"
+        android:text="Course Description"
+        android:textSize="22sp"
+        android:layout_below="@+id/explore_offered_by_item"
+        android:id="@+id/explore_course_description"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/explore_course_description"
+        android:text="List Of Topics"
+        android:id="@+id/list_of_topics_heading"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/explore_list_of_topics"
+        android:layout_below="@+id/list_of_topics_heading"
+        android:layout_above="@+id/enroll_course_btn"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/enroll_course_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:padding="10dp"
+        android:textSize="22sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp"
+        android:text="Enroll" />
+
 
 </RelativeLayout>

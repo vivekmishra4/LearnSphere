@@ -32,7 +32,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseViewHolder> {
     public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
         MyCourse course = courseList.get(position);
         holder.name.setText(course.getName());
-        holder.textRatings.setText(course.getRating()+" ("+course.getNumRatings()+")");
         holder.offeredBy.setText(course.getOfferedBy());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

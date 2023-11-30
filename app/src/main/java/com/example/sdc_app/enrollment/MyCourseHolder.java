@@ -17,6 +17,5 @@ public class MyCourseHolder extends RecyclerView.ViewHolder {
         super(itemView);
         courseName = itemView.findViewById(R.id.course_name);
         courseOfferedBy = itemView.findViewById(R.id.course_offered_by);
-        courseRatings = itemView.findViewById(R.id.course_ratings);
     }
 }

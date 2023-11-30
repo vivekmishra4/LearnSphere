@@ -86,9 +86,7 @@ public class EnrollmentSection extends Fragment {
         courseList = new ArrayList<>();
 
     }
-    public void openCourse(){
 
-    }
     public void setUserCourses(){
 
         courseDatabase.addValueEventListener(new ValueEventListener() {

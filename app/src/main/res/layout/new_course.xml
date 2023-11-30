@@ -18,20 +18,20 @@
         android:layout_height="wrap_content"
         android:hint="Enter Course Name"
         android:layout_below="@+id/course_add_title"
-        android:id="@+id/edit_course_name"/>
+        android:id="@+id/explore_course_name"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Course Description"
-        android:layout_below="@+id/edit_course_name"
-        android:id="@+id/edit_course_description"/>
+        android:layout_below="@+id/explore_course_name"
+        android:id="@+id/course_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45sp"
         android:layout_marginTop="23dp"
         android:id="@+id/course_add_topic"
-        android:layout_below="@id/edit_course_description"
+        android:layout_below="@id/course_description"
         android:orientation="horizontal">
         <TextView
             android:layout_width="340sp"
@@ -56,11 +56,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/profile_list_of_topics"
         android:layout_below="@+id/course_add_topic"
-        android:layout_above="@+id/submit_course_btn"
+        android:layout_above="@+id/enroll_course_btn"
         android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/submit_course_btn"
+        android:id="@+id/enroll_course_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

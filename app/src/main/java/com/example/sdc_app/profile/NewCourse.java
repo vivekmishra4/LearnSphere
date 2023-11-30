@@ -61,9 +61,9 @@ public class NewCourse extends Fragment {
         adminReference= FirebaseDatabase.getInstance().getReference("admin");
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
-        courseName=view.findViewById(R.id.edit_course_name);
-        courseDescription=view.findViewById(R.id.edit_course_description);
-        submitCourse=view.findViewById(R.id.submit_course_btn);
+        courseName=view.findViewById(R.id.explore_course_name);
+        courseDescription=view.findViewById(R.id.course_description);
+        submitCourse=view.findViewById(R.id.enroll_course_btn);
         topicsListView=view.findViewById(R.id.profile_list_of_topics);
         topicsListView.setAdapter(topicAdapter);
         addNewTopicIcon=view.findViewById(R.id.add_new_topic_icon);
@@ -94,7 +94,7 @@ public class NewCourse extends Fragment {
             @Override
             public void onClick(View v) {
                 String key=courseReference.push().getKey();
-                AddCourse course=new AddCourse(key,courseName.getText().toString(),courseDescription.getText().toString(),user.getDisplayName(),"123","4.5","CS",topicList);
+                AddCourse course=new AddCourse(key,courseName.getText().toString(),courseDescription.getText().toString(),user.getDisplayName(),topicList);
                 courseReference.child(key).setValue(course);
                 adminReference.child(user.getUid()).child(key).setValue("added");
                 getActivity().finish();

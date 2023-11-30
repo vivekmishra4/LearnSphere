@@ -12,12 +12,10 @@ import com.example.sdc_app.R;
 public class CourseViewHolder extends RecyclerView.ViewHolder {
     TextView name;
     TextView offeredBy;
-    TextView textRatings;
 
     public CourseViewHolder(@NonNull View itemView) {
         super(itemView);
         name=itemView.findViewById(R.id.course_name);
         offeredBy=itemView.findViewById(R.id.course_offered_by);
-        textRatings=itemView.findViewById(R.id.course_ratings);
     }
 }

@@ -42,6 +42,8 @@ public class ResultActivity extends AppCompatActivity {
     private String courseId;
     private String topicId;
     private boolean forward;
+    private String courseName;
+    private String courseOfferedBy;
     int percentInt;
     private long numAllTopics;
     private int numCompletedTopics=0;
@@ -87,6 +89,8 @@ public class ResultActivity extends AppCompatActivity {
         courseId=intent.getStringExtra("courseId");
         topicId=intent.getStringExtra("topicId");
         score=intent.getIntExtra("score",0);
+        courseName=intent.getStringExtra("courseName");
+        courseOfferedBy=intent.getStringExtra("courseOfferedBy");
 
         //Setting Intent data
         float percent=((float) score/questions.size())*100;
@@ -202,7 +206,11 @@ public class ResultActivity extends AppCompatActivity {
             myTemporaryReference.getParent().removeValue();
             float temp=(float)totalPercent/(float)numAllTopics;
             myIncompleteTopicReference.getParent().removeValue();
+            myCompletedReference.child("courseId").setValue(courseId);
+            myCompletedReference.child("courseName").setValue(courseName);
+            myCompletedReference.child("offeredBy").setValue(courseOfferedBy);
             myCompletedReference.child("score").setValue(Math.round(temp));
+            databaseReference.child("user/"+user.getUid()+"/courses").setValue("completed");
 
         }
 

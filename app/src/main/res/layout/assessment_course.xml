@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="@drawable/rounded_corner"
+    android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/assessment_course_header">
+
+            <TextView
+                android:id="@+id/assessment_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android Development"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/assessment_offered_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Osmania University"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/assessment_course_header"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/assessment_delete_course"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:contentDescription="UnEnroll"
+            android:minWidth="30dp"
+            android:src="@drawable/my_delete_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="Delete" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/assessment_course_header">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/assessment_course_score_title"
+            android:textSize="22sp"
+            android:text="Score:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/assessment_course_score"
+            android:textSize="22sp"
+            android:text="98"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
