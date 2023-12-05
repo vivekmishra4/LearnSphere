@@ -34,17 +34,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/my_course_header"
         android:orientation="horizontal"
+        android:weightSum="100"
         android:id="@+id/enrollment_extra_options">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_weight="45"
+            android:layout_marginEnd="20dp"
             android:text="Give Feedback"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            android:layout_marginStart="80dp"
+            android:layout_weight="45"
             android:text="UnEnroll from Course"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

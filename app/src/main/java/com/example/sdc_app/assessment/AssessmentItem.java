@@ -3,13 +3,13 @@ package com.example.sdc_app.assessment;
 public class AssessmentItem {
     private String courseId;
     private String courseName;
-    private String score;
+    private Object score;
     private String offeredBy;
 
     public AssessmentItem() {
     }
 
-    public AssessmentItem(String courseId, String courseName,String offeredBy, String score) {
+    public AssessmentItem(String courseId, String courseName,String offeredBy, Object score) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.score = score;
@@ -24,7 +24,7 @@ public class AssessmentItem {
         return courseName;
     }
 
-    public String getScore() {
+    public Object getScore() {
         return score;
     }
 

@@ -20,6 +20,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sdc_app.R;
+import com.example.sdc_app.community.CommunityItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -30,11 +31,14 @@ import java.util.List;
 
 public class NewCourse extends Fragment {
     EditText courseName,courseDescription;
+    EditText groupLink;
     Button submitCourse;
+    int numTopics=0;
     ImageView addNewTopicIcon;
     private SharedViewModel sharedViewModel;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    DatabaseReference communityReference;
     DatabaseReference courseReference;
     DatabaseReference adminReference;
     private ArrayAdapter<String> topicAdapter;
@@ -57,16 +61,11 @@ public class NewCourse extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //Setting View IDs
         View view = LayoutInflater.from(getContext()).inflate(R.layout.new_course, container, false);
-        courseReference= FirebaseDatabase.getInstance().getReference("course");
-        adminReference= FirebaseDatabase.getInstance().getReference("admin");
-        mAuth=FirebaseAuth.getInstance();
-        user=mAuth.getCurrentUser();
-        courseName=view.findViewById(R.id.explore_course_name);
-        courseDescription=view.findViewById(R.id.course_description);
-        submitCourse=view.findViewById(R.id.enroll_course_btn);
-        topicsListView=view.findViewById(R.id.profile_list_of_topics);
-        topicsListView.setAdapter(topicAdapter);
-        addNewTopicIcon=view.findViewById(R.id.add_new_topic_icon);
+
+        //Setting all Fields
+        setAllFields(view);
+
+        //Setting listener for new topic add
         addNewTopicIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,11 +77,13 @@ public class NewCourse extends Fragment {
             }
         });
 
+        //Getting Topics using shared View Model
         LiveData<AddTopic> liveData=sharedViewModel.getSharedTopicData();
         liveData.observe(getViewLifecycleOwner(), new Observer<AddTopic>() {
             @Override
             public void onChanged(AddTopic addTopic) {
                 if(addTopic!=null){
+                    numTopics++;
                     topicList.add(addTopic);
                     Toast.makeText(getContext(),"Topic added",Toast.LENGTH_LONG).show();
                 }
@@ -90,14 +91,29 @@ public class NewCourse extends Fragment {
             }
         });
 
+        //Adding listener for submit course
         submitCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String key=courseReference.push().getKey();
-                AddCourse course=new AddCourse(key,courseName.getText().toString(),courseDescription.getText().toString(),user.getDisplayName(),topicList);
-                courseReference.child(key).setValue(course);
-                adminReference.child(user.getUid()).child(key).setValue("added");
-                getActivity().finish();
+                if(courseName.getText().toString().equals("")
+                        ||courseDescription.getText().toString().equals("")
+                        ||groupLink.getText().toString().equals("")
+                        ||numTopics==0){
+                    Toast.makeText(getContext(),"Enter Complete Course Details",Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    String key=courseReference.push().getKey();
+                    AddCourse course=new AddCourse(key,courseName.getText().toString(),
+                            courseDescription.getText().toString(),user.getDisplayName(),topicList);
+                    courseReference.child(key).setValue(course);
+                    adminReference.child(user.getUid()).child(key).setValue("added");
+                    CommunityItem communityItem=new CommunityItem(courseName.getText().toString(),key,groupLink.getText().toString()
+                            , user.getDisplayName());
+                    communityReference.child(key).setValue(communityItem);
+                    getActivity().finish();
+
+                }
 
 
             }
@@ -105,6 +121,22 @@ public class NewCourse extends Fragment {
 
         return view;
     }
+    public void setAllFields(View view){
+        communityReference=FirebaseDatabase.getInstance().getReference("community");
+        courseReference= FirebaseDatabase.getInstance().getReference("course");
+        adminReference= FirebaseDatabase.getInstance().getReference("admin");
+        mAuth=FirebaseAuth.getInstance();
+        user=mAuth.getCurrentUser();
+        courseName=view.findViewById(R.id.explore_course_name);
+        courseDescription=view.findViewById(R.id.course_description);
+        submitCourse=view.findViewById(R.id.enroll_course_btn);
+        topicsListView=view.findViewById(R.id.profile_list_of_topics);
+        topicsListView.setAdapter(topicAdapter);
+        addNewTopicIcon=view.findViewById(R.id.add_new_topic_icon);
+        groupLink=view.findViewById(R.id.group_link);
+
+    }
+
 
     @Override
     public void onResume() {

@@ -210,7 +210,7 @@ public class ResultActivity extends AppCompatActivity {
             myCompletedReference.child("courseName").setValue(courseName);
             myCompletedReference.child("offeredBy").setValue(courseOfferedBy);
             myCompletedReference.child("score").setValue(Math.round(temp));
-            databaseReference.child("user/"+user.getUid()+"/courses").setValue("completed");
+            databaseReference.child("user/"+user.getUid()+"/courses").child(courseId).setValue("completed");
 
         }
 

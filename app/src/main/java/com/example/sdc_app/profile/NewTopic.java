@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -30,6 +31,8 @@ import java.util.UUID;
 public class NewTopic extends Fragment {
     private SharedViewModel sharedViewModel;
     EditText topicName;
+    TextView numQuestions;
+    int numQs=0;
     Spinner selectRightOption;
     Button submitQuestion,submitTopic;
     private ActivityResultLauncher<String> mGetContent;
@@ -55,23 +58,15 @@ public class NewTopic extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //Setting View IDs
         View view = LayoutInflater.from(getContext()).inflate(R.layout.new_topic, container, false);
-        topicName=view.findViewById(R.id.edit_topic_name);
-        uploadPDF=view.findViewById(R.id.upload_pdf_file_icon);
-        question=view.findViewById(R.id.edit_question);
-        option1=view.findViewById(R.id.edit_option_1);
-        option2=view.findViewById(R.id.edit_option_2);
-        option3=view.findViewById(R.id.edit_option_3);
-        option4=view.findViewById(R.id.edit_option_4);
-        submitQuestion=view.findViewById(R.id.submit_question_btn);
-        submitTopic=view.findViewById(R.id.submit_topic_btn);
-        selectRightOption=view.findViewById(R.id.correct_option_spinner);
-        storage=FirebaseStorage.getInstance();
-        storageReference=storage.getReference();
+        setAllFields(view);
+
         //setting Submit Question Button
         List<AddQuestion> questionList=new ArrayList<>();
         submitQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numQs++;
+                numQuestions.setText(String.valueOf(numQs));
                 rightOption=selectRightOption.getSelectedItem().toString();
                 switch (rightOption) {
                     case "Option 1":
@@ -120,8 +115,10 @@ public class NewTopic extends Fragment {
             public void onClick(View v) {
                 if(pdfLink.equals("unselected")){
                     Toast.makeText(getActivity(), "Please Select a PDF file for upload", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else if ((topicName.getText().toString().equals(""))||numQs==0) {
+                    Toast.makeText(getActivity(),"Enter Topic details before Submitting",Toast.LENGTH_LONG).show();
+
+                } else{
                     AddTopic topic=new AddTopic(topicName.getText().toString(),pdfLink,questionList);
                     sharedViewModel.setSharedTopicData(topic);
                     //This will navigate back to previous fragment
@@ -135,6 +132,22 @@ public class NewTopic extends Fragment {
         });
 
         return view;
+    }
+    public void setAllFields(View view){
+        topicName=view.findViewById(R.id.edit_topic_name);
+        uploadPDF=view.findViewById(R.id.upload_pdf_file_icon);
+        question=view.findViewById(R.id.edit_question);
+        option1=view.findViewById(R.id.edit_option_1);
+        option2=view.findViewById(R.id.edit_option_2);
+        option3=view.findViewById(R.id.edit_option_3);
+        option4=view.findViewById(R.id.edit_option_4);
+        numQuestions=view.findViewById(R.id.number_of_questions);
+        submitQuestion=view.findViewById(R.id.submit_question_btn);
+        submitTopic=view.findViewById(R.id.submit_topic_btn);
+        selectRightOption=view.findViewById(R.id.correct_option_spinner);
+        storage=FirebaseStorage.getInstance();
+        storageReference=storage.getReference();
+
     }
     public void choosePdfFile(){
         mGetContent.launch("application/pdf");

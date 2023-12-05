@@ -2,6 +2,7 @@ package com.example.sdc_app.assessment;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,9 @@ public class AssessmentSection extends Fragment {
         courseAdapter=new AssessmentCourseAdapter(itemsList, new AssessmentCourseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ImageView imageView, String courseId) {
+                Log.i("a","assessment");
+                courseDatabase.child(courseId).removeValue();
+                database.child("user/"+user.getUid()+"/courses/"+courseId).removeValue();
 
             }
         });

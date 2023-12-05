@@ -65,11 +65,6 @@ public class EnrollmentSection extends Fragment {
 
                 }
 
-
-//                Intent intent=new Intent(getContext(), PDFActivity.class);
-//                startActivity(intent);
-//                // Handle item click here
-//                Toast.makeText(getContext(), "Clicked: " + item.getName(), Toast.LENGTH_SHORT).show();
             }
         });
         recyclerView.setAdapter(myAdapter);

@@ -25,13 +25,19 @@
         android:hint="Enter Course Description"
         android:layout_below="@+id/explore_course_name"
         android:id="@+id/course_description"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter group link"
+        android:id="@+id/group_link"
+        android:layout_below="@id/course_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45sp"
         android:layout_marginTop="23dp"
         android:id="@+id/course_add_topic"
-        android:layout_below="@id/course_description"
+        android:layout_below="@id/group_link"
         android:orientation="horizontal">
         <TextView
             android:layout_width="340sp"
@@ -47,7 +53,8 @@
             android:layout_height="match_parent"
             android:foregroundGravity="center_horizontal"
             android:tooltipText="Add Topic"
-            android:src="@drawable/add_icon" />
+            android:src="@drawable/add_icon"
+            android:contentDescription="Add New Topic Icon" />
 
     </LinearLayout>
 
@@ -61,8 +68,9 @@
 
     <Button
         android:id="@+id/enroll_course_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
         android:text="Submit Course" />

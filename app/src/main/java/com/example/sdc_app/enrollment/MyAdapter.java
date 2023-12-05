@@ -3,6 +3,8 @@ package com.example.sdc_app.enrollment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +14,7 @@ import com.example.sdc_app.profile.AddCourse;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyCourseHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyCourseHolder> {
     private List<AddCourse> courseList;
     private OnItemClickListener listener;
 
@@ -34,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyCourseHolder> {
         holder.courseName.setText(course.getName());
         holder.courseOfferedBy.setText(course.getOfferedBy());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.viewCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
@@ -51,6 +53,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyCourseHolder> {
 
     public interface OnItemClickListener {
         void onItemClick(AddCourse item);
+    }
+    public class MyCourseHolder extends RecyclerView.ViewHolder {
+        TextView courseName ;
+        TextView courseOfferedBy;
+        Button viewCourse;
+
+        public MyCourseHolder(View itemView) {
+            super(itemView);
+            courseName = itemView.findViewById(R.id.course_name);
+            courseOfferedBy = itemView.findViewById(R.id.course_offered_by);
+            viewCourse=itemView.findViewById(R.id.explore_course_btn);
+
+        }
     }
 }
 
