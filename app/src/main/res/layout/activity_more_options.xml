@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:padding="8dp"
+    tools:context=".MoreOptionsActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feedback_title"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:textColor="#111111"
+            android:background="#DAB8B8"
+            android:textSize="32sp"
+            android:text="Give Feedback"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:id="@+id/feedback_text"
+            android:hint="Write feedback Here"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/feedback_btn"
+            android:text="Submit Feedback"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/more_signOut_btn"
+            android:text="Sign Out"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:id="@+id/delete_account_btn"
+            android:text="Delete Account"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/about_us_title"
+            android:layout_marginTop="34dp"
+            android:textSize="32sp"
+            android:text="About Us:"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:id="@+id/about_us"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

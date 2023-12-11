@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,14 +41,12 @@ public class AssessmentSection extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=LayoutInflater.from(getContext()).inflate(R.layout.assessment_section,container,false);
         setAllFields(view);
-        courseAdapter=new AssessmentCourseAdapter(itemsList, new AssessmentCourseAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(ImageView imageView, String courseId) {
-                Log.i("a","assessment");
-                courseDatabase.child(courseId).removeValue();
-                database.child("user/"+user.getUid()+"/courses/"+courseId).removeValue();
+        courseAdapter=new AssessmentCourseAdapter(itemsList, (imageView, courseId) -> {
+            //public void onItemClick(ImageView imageView, String courseId)
+            Log.i("a","assessment");
+            courseDatabase.child(courseId).removeValue();
+            database.child("user/"+user.getUid()+"/courses/"+courseId).removeValue();
 
-            }
         });
 
         recyclerView.setAdapter(courseAdapter);

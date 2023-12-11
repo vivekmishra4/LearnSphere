@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==R.id.settings){
-            Intent intent=new Intent(getBaseContext(),SettingsActivity.class);
+        if(item.getItemId()==R.id.more){
+            Intent intent=new Intent(getBaseContext(), MoreOptionsActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

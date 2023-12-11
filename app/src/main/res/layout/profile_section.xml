@@ -68,7 +68,7 @@
         android:layout_below="@id/sign_out_btn"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="340sp"
+            android:layout_width="300sp"
             android:layout_height="match_parent"
             android:textSize="30sp"
             android:gravity="center_horizontal"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdc_app.R;
@@ -31,6 +32,9 @@ public class PDFActivity extends AppCompatActivity {
         PDFView pdfView = findViewById(R.id.show_pdf);
         Intent intent=getIntent();
         String url=intent.getStringExtra("contentLink");
+        String topicName=intent.getStringExtra("topicName");
+        TextView textView=findViewById(R.id.content_title);
+        textView.setText(topicName);
         Log.i("my url",url);
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());

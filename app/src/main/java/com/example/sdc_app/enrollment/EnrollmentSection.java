@@ -3,6 +3,7 @@ package com.example.sdc_app.enrollment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,7 @@ import com.example.sdc_app.R;
 import com.example.sdc_app.profile.AddCourse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EnrollmentSection extends Fragment {
@@ -68,7 +72,11 @@ public class EnrollmentSection extends Fragment {
             }
         });
         recyclerView.setAdapter(myAdapter);
+
+        //Setting User Course
         setUserCourses();
+        setCourseChildListener();
+
         return view;
     }
     public void setAllThings(View view){
@@ -83,8 +91,7 @@ public class EnrollmentSection extends Fragment {
     }
 
     public void setUserCourses(){
-
-        courseDatabase.addValueEventListener(new ValueEventListener() {
+        courseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 courseList.clear();
@@ -96,6 +103,75 @@ public class EnrollmentSection extends Fragment {
                     }
 
                 }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+    private void setCourseChildListener(){
+        courseDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.i("course changed","course changed");
+                if(snapshot.getValue(String.class).equals("completed")){
+                    String courseId = snapshot.getKey();
+
+                    // Update local data (courseList) by removing the course with the matching courseId
+                    Iterator<AddCourse> iterator = courseList.iterator();
+                    while (iterator.hasNext()) {
+                        AddCourse course = iterator.next();
+                        if (course.getCourseId().equals(courseId)) {
+                            iterator.remove();
+                            break; // Assuming courseId is unique, so we can break after the first match
+                        }
+                    }
+
+                    // Notify the adapter that the data has changed
+                    if (myAdapter != null) {
+                        myAdapter.setCourseList(courseList);
+                    }
+
+                }
+
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Log.i("course removed","course removed");
+                String courseId = snapshot.getKey();
+
+                // Update local data (courseList) by removing the course with the matching courseId
+                Iterator<AddCourse> iterator = courseList.iterator();
+                while (iterator.hasNext()) {
+                    AddCourse course = iterator.next();
+                    if (course.getCourseId().equals(courseId)) {
+                        iterator.remove();
+                        break; // Assuming courseId is unique, so we can break after the first match
+                    }
+                }
+
+                // Notify the adapter that the data has changed
+                if (myAdapter != null) {
+                    myAdapter.setCourseList(courseList);
+                }
+
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
             }
 

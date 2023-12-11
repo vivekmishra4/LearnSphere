@@ -10,4 +10,6 @@
     <color name="textLabelText">#393434</color>
     <color name="textColorPrimary">#DA8888</color>
     <color name="textColorSecondary">#111111</color>
+    <color name="textColor">#333333</color>
+    <color name="textBackground">#538C8C</color>
 </resources>

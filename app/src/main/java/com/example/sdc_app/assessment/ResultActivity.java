@@ -32,6 +32,7 @@ public class ResultActivity extends AppCompatActivity {
     List<AddQuestion> questions;
     ArrayAdapter<String> adapter;
     TextView testResultPercent;
+    boolean checkComplete;
     DatabaseReference databaseReference;
     DatabaseReference myCompletedReference;
     DatabaseReference myIncompleteTopicReference;
@@ -96,7 +97,6 @@ public class ResultActivity extends AppCompatActivity {
         float percent=((float) score/questions.size())*100;
         percentInt=Math.round(percent);
         testResultPercent.setText(String.valueOf(percentInt));
-        numRightAns.setText(String.valueOf(score)+"/"+String.valueOf(questions.size()));
         myCompletedReference =databaseReference.child("enrollment/user/"+user.getUid()).child("completed/"+courseId);
         myTemporaryReference=databaseReference.child("enrollment/user/"+user.getUid()).child("temporary/"+courseId);
         myIncompleteTopicReference=databaseReference.child("enrollment/user/"+user.getUid()).child("incomplete/"+courseId)
@@ -130,6 +130,10 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void onCloseResultButton(View view){
+        if(checkComplete){
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        }
         finish();
 
     }
@@ -202,6 +206,7 @@ public class ResultActivity extends AppCompatActivity {
     }
     public void checkAndUpdateCourse(){
         if(numAllTopics<=numCompletedTopics){
+            checkComplete=true;
             Log.i("numAllTopics","numCom:"+numCompletedTopics);
             myTemporaryReference.getParent().removeValue();
             float temp=(float)totalPercent/(float)numAllTopics;
@@ -211,6 +216,7 @@ public class ResultActivity extends AppCompatActivity {
             myCompletedReference.child("offeredBy").setValue(courseOfferedBy);
             myCompletedReference.child("score").setValue(Math.round(temp));
             databaseReference.child("user/"+user.getUid()+"/courses").child(courseId).setValue("completed");
+
 
         }
 

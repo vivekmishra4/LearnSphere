@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText username,password;
-    Button signIn,SignUpPage,HomePage;
+    Button signIn,SignUpPage;
     Boolean signedIn;
     CheckBox showPassword;
 
@@ -34,7 +34,6 @@ public class SignInActivity extends AppCompatActivity {
         password=findViewById(R.id.sign_in_password);
         signIn=findViewById(R.id.sign_in_btn);
         SignUpPage=findViewById(R.id.sign_up_page);
-        HomePage=findViewById(R.id.home_page_btn);
         showPassword=findViewById(R.id.sign_in_show_password);
         showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -81,13 +80,6 @@ public class SignInActivity extends AppCompatActivity {
                 Intent intent=new Intent(getBaseContext(),SignUpActivity.class);
                 startActivity(intent);
 
-            }
-        });
-        HomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getBaseContext(),MainActivity.class);
-                startActivity(intent);
             }
         });
     }

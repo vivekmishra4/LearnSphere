@@ -54,7 +54,7 @@ public class ProfileSection extends Fragment {
             public void onClick(View v) {
                 mAuth.signOut();
                 Intent intent=new Intent(getActivity(), SignInActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 getActivity().finish();
 

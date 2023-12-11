@@ -37,18 +37,22 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.Comm
     @Override
     public void onBindViewHolder(@NonNull CommunityAdapter.CommunityHolder holder, int position) {
         CommunityItem item=itemList.get(position);
-        holder.name.setText(item.getName());
-        holder.offeredBy.setText(item.getOfferedBy());
-        holder.communityButton.setText("View Community");
-        holder.communityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onItemClick(item);
-                }
+        if(item!=null){
+            holder.name.setText(item.getName());
+            holder.offeredBy.setText(item.getOfferedBy());
+            holder.communityButton.setText("View Community");
+            holder.communityButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.onItemClick(item);
+                    }
 
-            }
-        });
+                }
+            });
+
+        }
+
 
     }
 

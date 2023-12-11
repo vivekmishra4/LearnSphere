@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".SignUpActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="Sign Up Page"
         android:gravity="center_horizontal"
         android:textColor="@color/textLabelText"
         android:textSize="30sp"
-        android:background="@color/textLabelBackground"
+        android:background="@drawable/rectangular_corner"
         android:textStyle="bold"
         android:id="@+id/sign_up_page_title"/>
     <ImageView

@@ -2,8 +2,6 @@ package com.example.sdc_app.assessment;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,21 +42,15 @@ public class AssessmentCourseAdapter extends RecyclerView.Adapter<AssessmentCour
             @Override
             public void onClick(View v) {
                 final boolean[] proceed = new boolean[1];
-                proceed[0]=false;
-                showAlertDialog(context, new AlertDialogCallback() {
-                    @Override
-                    public void onUserResponse(boolean userClickedYes) {
-                        // Handle user's response
-                        proceed[0]=userClickedYes;
-                        if(proceed[0]){
-                            listener.onItemClick(holder.Delete,course.getCourseId());
+                showAlertDialog(context, userClickedYes -> {
+                    // Handle user's response
+                    proceed[0]=userClickedYes;
+                    if(proceed[0]){
+                        listener.onItemClick(holder.Delete,course.getCourseId());
+                        Toast.makeText(context, "Deleted Course"+course.getCourseName(), Toast.LENGTH_SHORT).show();
 
-                        }
                     }
                 });
-
-
-
 
 
             }
@@ -76,23 +68,17 @@ public class AssessmentCourseAdapter extends RecyclerView.Adapter<AssessmentCour
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Confirmation");
         builder.setMessage("Do you want to Delete the Course?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback != null) {
-                    callback.onUserResponse(true);
-                }
-                dialog.dismiss();
+        builder.setPositiveButton("YES", (dialog, which) -> {
+            if (callback != null) {
+                callback.onUserResponse(true);
             }
+            dialog.dismiss();
         });
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback != null) {
-                    callback.onUserResponse(false);
-                }
-                dialog.dismiss();
+        builder.setNegativeButton("NO", (dialog, which) -> {
+            if (callback != null) {
+                callback.onUserResponse(false);
             }
+            dialog.dismiss();
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

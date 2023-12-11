@@ -17,6 +17,10 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyCourseHolder> {
     private List<AddCourse> courseList;
     private OnItemClickListener listener;
+    public void setCourseList(List<AddCourse> courseList){
+        this.courseList=courseList;
+        notifyDataSetChanged();
+    }
 
     public MyAdapter(List<AddCourse> courseList, OnItemClickListener listener) {
         this.courseList = courseList;

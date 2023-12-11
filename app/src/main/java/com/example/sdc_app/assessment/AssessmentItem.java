@@ -7,6 +7,7 @@ public class AssessmentItem {
     private String offeredBy;
 
     public AssessmentItem() {
+        //For Firebase
     }
 
     public AssessmentItem(String courseId, String courseName,String offeredBy, Object score) {

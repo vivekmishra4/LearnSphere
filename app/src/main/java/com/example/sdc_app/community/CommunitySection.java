@@ -78,7 +78,6 @@ public class CommunitySection extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     String courseId=dataSnapshot.getKey();
-                    Log.i("comm","comm"+courseId.toString());
                     getCommunity(courseId);
                 }
                 communityAdapter.notifyDataSetChanged();
@@ -97,7 +96,6 @@ public class CommunitySection extends Fragment {
         communityReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("comm","commhhh"+courseId.toString());
                 CommunityItem communityItem=snapshot.getValue(CommunityItem.class);
                 itemList.add(communityItem);
                 communityAdapter.notifyDataSetChanged();

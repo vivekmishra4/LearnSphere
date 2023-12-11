@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".profile.NewCourse">
     <TextView
@@ -10,7 +11,7 @@
         android:id="@+id/course_add_title"
         android:textSize="30sp"
         android:textColor="@color/textLabelText"
-        android:background="@color/textLabelBackground"
+        android:background="@drawable/rectangular_thick_corner"
         android:gravity="center_horizontal"
         android:text="Enter New Course Details"/>
     <EditText
@@ -40,7 +41,7 @@
         android:layout_below="@id/group_link"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="340sp"
+            android:layout_width="300sp"
             android:layout_height="match_parent"
             android:textSize="30sp"
             android:gravity="center_horizontal"
