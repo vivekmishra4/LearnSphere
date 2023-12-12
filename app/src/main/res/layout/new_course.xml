@@ -52,7 +52,6 @@
             android:id="@+id/add_new_topic_icon"
             android:layout_width="50sp"
             android:layout_height="match_parent"
-            android:foregroundGravity="center_horizontal"
             android:tooltipText="Add Topic"
             android:src="@drawable/add_icon"
             android:contentDescription="Add New Topic Icon" />

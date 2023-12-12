@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="12dp"
+        android:background="#FFFFFF"
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:orientation="vertical">
@@ -41,7 +42,7 @@
             android:id="@+id/assessment_delete_course"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
-            android:contentDescription="UnEnroll"
+            android:contentDescription="Delete"
             android:minWidth="46dp"
             android:src="@drawable/my_delete_logo" />
 

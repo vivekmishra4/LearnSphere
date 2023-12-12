@@ -23,7 +23,6 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText username,password;
     Button signIn,SignUpPage;
-    Boolean signedIn;
     CheckBox showPassword;
 
     @Override
