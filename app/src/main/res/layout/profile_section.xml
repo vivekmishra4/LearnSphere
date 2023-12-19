@@ -15,7 +15,7 @@
         android:layout_marginStart="146dp"
         android:layout_marginEnd="145dp"
         android:layout_marginBottom="14dp"
-        android:src="@drawable/logo_profile" />
+        android:src="@drawable/logo_sign_in" />
 
 
     <LinearLayout
@@ -29,26 +29,33 @@
             android:id="@+id/profile_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/lightBlack"
             android:background="@drawable/rounded_corner"
             android:layout_margin="5dp"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:textColor="@color/lightBlack"
           android:background="@drawable/rounded_corner"
           android:layout_margin="5dp"
           android:id="@+id/profile_name"
-          android:textSize="30sp"/>
+          android:textSize="25sp"/>
 
 
     </LinearLayout>
 
     <Button
         android:id="@+id/sign_out_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
         android:text="@string/sign_out"
         android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:layout_below="@id/profile_items"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +76,7 @@
             android:layout_width="50sp"
             android:layout_height="match_parent"
             android:foregroundGravity="center_horizontal"
-            android:tooltipText="Add Course"
+            android:contentDescription="add new course"
             android:src="@drawable/add_icon" />
 
     </LinearLayout>

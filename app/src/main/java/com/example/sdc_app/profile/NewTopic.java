@@ -113,7 +113,7 @@ public class NewTopic extends Fragment {
         submitTopic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pdfLink.equals("unselected")){
+                if(pdfLink.equals("unselected")||pdfLink.equals("")){
                     Toast.makeText(getActivity(), "Please Select a PDF file for upload", Toast.LENGTH_SHORT).show();
                 } else if ((topicName.getText().toString().equals(""))||numQs==0) {
                     Toast.makeText(getActivity(),"Enter Topic details before Submitting",Toast.LENGTH_LONG).show();

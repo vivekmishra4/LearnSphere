@@ -3,6 +3,8 @@ package com.example.sdc_app.assessment;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sdc_app.R;
@@ -37,6 +40,7 @@ public class ResultActivity extends AppCompatActivity {
     DatabaseReference myCompletedReference;
     DatabaseReference myIncompleteTopicReference;
     DatabaseReference myTemporaryReference;
+    TextView resultTopicName;
     FirebaseUser user;
     TextView numRightAns;
     Button closeResultButton;
@@ -44,6 +48,7 @@ public class ResultActivity extends AppCompatActivity {
     private String topicId;
     private boolean forward;
     private String courseName;
+    private String topicName;
     private String courseOfferedBy;
     int percentInt;
     private long numAllTopics;
@@ -56,6 +61,8 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#001F3F")));
         //Set All Fields
         setAllFields();
 
@@ -78,6 +85,7 @@ public class ResultActivity extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         user= FirebaseAuth.getInstance().getCurrentUser();
         closeResultButton=findViewById(R.id.close_result_btn);
+        resultTopicName=findViewById(R.id.test_result_title);
         adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
 
@@ -91,12 +99,15 @@ public class ResultActivity extends AppCompatActivity {
         topicId=intent.getStringExtra("topicId");
         score=intent.getIntExtra("score",0);
         courseName=intent.getStringExtra("courseName");
+        topicName=intent.getStringExtra("topicName");
         courseOfferedBy=intent.getStringExtra("courseOfferedBy");
 
         //Setting Intent data
+        resultTopicName.setText(topicName);
         float percent=((float) score/questions.size())*100;
         percentInt=Math.round(percent);
         testResultPercent.setText(String.valueOf(percentInt));
+        numRightAns.setText(score+"/"+questions.size());
         myCompletedReference =databaseReference.child("enrollment/user/"+user.getUid()).child("completed/"+courseId);
         myTemporaryReference=databaseReference.child("enrollment/user/"+user.getUid()).child("temporary/"+courseId);
         myIncompleteTopicReference=databaseReference.child("enrollment/user/"+user.getUid()).child("incomplete/"+courseId)

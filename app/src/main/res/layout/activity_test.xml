@@ -10,31 +10,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/topic_header"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/textLabelText"
-            android:textSize="30sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal"
-            android:background="@color/textLabelBackground"
-            android:text="Test"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:id="@+id/test_course_name"
-            android:background="@color/textLabelBackground"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:text="Course Name"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
             android:id="@+id/test_topic_name"
+            android:textColor="@color/lightBlack"
             android:gravity="center_horizontal"
             android:textSize="30sp"
             android:text="Topic Name"/>
@@ -48,12 +40,14 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/num_qs_title"
                 android:textSize="23sp"
+                android:textColor="@color/lightBlack"
                 android:text="Total Questions:"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="23sp"
+                android:textColor="@color/lightBlack"
                 android:text="0"
                 android:id="@+id/num_questions"/>
         </LinearLayout>
@@ -78,6 +72,7 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:id="@+id/question_id"
+                android:textColor="@color/lightBlack"
                 android:text="1."/>
             <TextView
                 android:layout_width="match_parent"
@@ -85,6 +80,7 @@
                 android:minHeight="50sp"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                android:textColor="@color/lightBlack"
                 android:id="@+id/question_text"
                 android:text="Question"/>
 
@@ -114,14 +110,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClearButtonClick"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:id="@+id/test_next_btn"
             android:text="Clear"/>
         <Button
             android:layout_weight="50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:id="@+id/test_clear_btn"
             android:onClick="onNextButtonClick"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:text="Next"/>
 
     </LinearLayout>

@@ -17,8 +17,8 @@
             android:id="@+id/feedback_title"
             android:layout_marginTop="24dp"
             android:gravity="center_horizontal"
-            android:textColor="#111111"
-            android:background="#DAB8B8"
+            android:textColor="@color/white"
+            android:background="@color/lightBlue"
             android:textSize="32sp"
             android:text="Give Feedback"/>
         <EditText
@@ -31,6 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/feedback_btn"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:background="@color/darkBlue"
             android:text="Submit Feedback"/>
 
         <Button
@@ -38,7 +41,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:id="@+id/more_signOut_btn"
+            android:padding="8dp"
             android:text="Sign Out"/>
         <Button
             android:layout_width="wrap_content"
@@ -46,7 +52,10 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:id="@+id/delete_account_btn"
+            android:padding="7dp"
             android:text="Delete Account"/>
         <TextView
             android:layout_width="match_parent"
@@ -54,6 +63,7 @@
             android:id="@+id/about_us_title"
             android:layout_marginTop="34dp"
             android:textSize="32sp"
+            android:textColor="@color/lightBlack"
             android:text="About Us:"
             />
         <TextView
@@ -61,8 +71,10 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:autoLink="web"
+            android:textColor="@color/lightBlack"
             android:linksClickable="true"
             android:id="@+id/about_us"/>
+
 
     </LinearLayout>
 

@@ -17,6 +17,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Android Development"
+                android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
 
@@ -24,6 +25,7 @@
                 android:id="@+id/assessment_offered_by"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
                 android:text="Osmania University"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -50,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
+            android:textColor="@color/lightBlack"
             android:text="Delete" />
 
     </LinearLayout>

@@ -12,4 +12,7 @@
     <color name="textColorSecondary">#111111</color>
     <color name="textColor">#333333</color>
     <color name="textBackground">#538C8C</color>
+    <color name="lightBlack">#292828</color>
+    <color name="lightBlue">#505FB6</color>
+    <color name="temp">#574343</color>
 </resources>

@@ -17,6 +17,7 @@
             android:id="@+id/my_course_name"
             android:textStyle="bold"
             android:gravity="center_horizontal"
+            android:textColor="@color/black"
             android:text="Course Name"
             android:textSize="30sp"/>
         <TextView
@@ -25,6 +26,7 @@
             android:id="@+id/my_course_offered_by"
             android:textStyle="bold"
             android:gravity="center_horizontal"
+            android:textColor="@color/lightBlack"
             android:text="Course Offered By"
             android:textSize="25sp"/>
 
@@ -36,6 +38,9 @@
         android:layout_margin="7dp"
         android:textAllCaps="false"
         android:layout_centerHorizontal="true"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:text="UnEnroll from Course"
         android:id="@+id/enrollment_unEnroll"/>
     <androidx.recyclerview.widget.RecyclerView

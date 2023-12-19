@@ -1,10 +1,13 @@
 package com.example.sdc_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +36,8 @@ public class MoreOptionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_options);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#001F3F")));
         EditText feedbackText=findViewById(R.id.feedback_text);
         Button feedbackButton=findViewById(R.id.feedback_btn);
         Button signOut=findViewById(R.id.more_signOut_btn);

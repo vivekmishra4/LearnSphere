@@ -1,8 +1,11 @@
 package com.example.sdc_app.assessment;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,6 +49,8 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#001F3F")));
 
         //Setting All fields
          setAllFields();
@@ -120,6 +125,7 @@ public class TestActivity extends AppCompatActivity {
             intent.putExtra("topicId",topicId);
             intent.putExtra("courseName",myCourseName);
             intent.putExtra("courseOfferedBy",offeredBy);
+            intent.putExtra("topicName",myTopicName);
             startActivity(intent);
             finish();
 

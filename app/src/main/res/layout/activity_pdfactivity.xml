@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:background="#E8CDCD"
         android:layout_marginTop="10dp"
-        android:textColor="#000000"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:textSize="30sp"
         android:id="@+id/content_title"
         android:text="Topic Name"/>

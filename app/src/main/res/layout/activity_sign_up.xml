@@ -57,6 +57,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:background="@color/darkBlue"
             android:id="@+id/sign_up_btn"
             android:text="@string/sign_up"/>
 
@@ -67,6 +70,8 @@
         android:id="@+id/sign_in_page"
         android:text="@string/sign_in"
         android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:layout_below="@+id/sign_up_items"/>
 
 </RelativeLayout>

@@ -10,6 +10,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Test Result"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:textSize="25sp"
         android:id="@+id/test_result_heading"/>
     <TextView
@@ -17,6 +19,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="Topic-1"
         android:layout_below="@+id/test_result_heading"
         android:id="@+id/test_result_title"/>
@@ -36,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
+                android:textColor="@color/lightBlack"
                 android:text="Percentage:"
                 android:textSize="20sp"
                 android:id="@+id/test_score_percent"/>
@@ -43,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:textColor="@color/lightBlack"
                 android:text="100%"
                 android:textSize="20sp"
                 android:id="@+id/test_result_percent"/>
@@ -55,6 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
                 android:layout_weight="40"
                 android:text="right Answers:"
                 android:textSize="20sp"
@@ -63,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
+                android:textColor="@color/lightBlack"
                 android:textSize="20sp"
                 android:text="10/16"
                 android:id="@+id/num_right_ans"/>
@@ -83,12 +90,16 @@
         android:layout_above="@+id/close_result_btn"
         android:id="@+id/test_result_list"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Close Result"
+        android:layout_centerHorizontal="true"
+        android:padding="12dp"
         android:onClick="onCloseResultButton"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
         android:id="@+id/close_result_btn"/>
 
 
