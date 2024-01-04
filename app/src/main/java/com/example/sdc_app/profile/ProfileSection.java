@@ -65,12 +65,12 @@ public class ProfileSection extends Fragment {
         return view;
     }
     //This is for Normal Users
-    public void setAchievementsList(){
+    public void setNormalUser(){
         addCourse.setVisibility(View.GONE);
 
     }
     //This is for Admins
-    public void setCoursesList(){
+    public void setAdminFunctionality(){
         addCourse.setVisibility(View.VISIBLE);
         addCourse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,19 +110,19 @@ public class ProfileSection extends Fragment {
                                 if("admin".equals(role)){
                                     //User is admin
                                     admin=true;
-                                    setCoursesList();
+                                    setAdminFunctionality();
                                 }
                                 else {
                                     //User is not admin
                                     admin=false;
-                                    setAchievementsList();
+                                    setNormalUser();
                                 }
 
                             }
                             else {
                                 //User is not admin
                                 admin=false;
-                                setAchievementsList();
+                                setNormalUser();
                             }
                         }
                         public void onCancelled(@NonNull DatabaseError error) {

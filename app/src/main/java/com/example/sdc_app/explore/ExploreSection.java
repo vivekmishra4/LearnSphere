@@ -97,7 +97,7 @@ public class ExploreSection extends Fragment {
             }
         }
         if(filteredList.isEmpty()){
-            Toast.makeText(getContext(),"No data Found",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),"Course not found",Toast.LENGTH_LONG).show();
         }else {
             courseAdapter.setFilteredList(filteredList);
 
