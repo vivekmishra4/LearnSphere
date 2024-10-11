@@ -54,12 +54,12 @@ Below are some sample screenshots of the key sections of the app:
     <td align="center">
       <strong>Sign-In</strong><br>
       Log in to your account.<br>
-      <img src="/app/src/main/assets/sign-in.png" alt="Sign In" width="250" height="600">
+      <img src="/app/src/main/assets/sign-in.png" alt="Sign In" width="250" height="500">
     </td>
     <td align="center">
       <strong>Explore</strong><br>
       A portal to discover and enroll in courses.<br>
-      <img src="/app/src/main/assets/explore.png" alt="Explore Section" width="250" height="600">
+      <img src="/app/src/main/assets/explore.png" alt="Explore Section" width="250" height="500">
     </td>
     
   </tr>
@@ -67,12 +67,12 @@ Below are some sample screenshots of the key sections of the app:
     <td align="center">
       <strong>Enrollment</strong><br>
       Manage your enrolled courses and access course content.<br>
-      <img src="/app/src/main/assets/enrollment.png" alt="Enrollment Section" width="250" height="600">
+      <img src="/app/src/main/assets/enrollment.png" alt="Enrollment Section" width="250" height="500">
     </td>
     <td align="center">
       <strong>Community</strong><br>
       Engage in collaborative learning through discussion groups.<br>
-      <img src="/app/src/main/assets/community.png" alt="Community Section" width="250" height="600">
+      <img src="/app/src/main/assets/community.png" alt="Community Section" width="250" height="500">
     </td>
   </tr>
   <tr>
@@ -80,24 +80,24 @@ Below are some sample screenshots of the key sections of the app:
     <td align="center">
       <strong>View Content</strong><br>
       View the content topic wise.<br>
-      <img src="/app/src/main/assets/view-content.png" alt="View Content" width="250" height="600">
+      <img src="/app/src/main/assets/view-content.png" alt="View Content" width="250" height="500">
     </td>
     <td align="center">
       <strong>Take Test</strong><br>
       Tske test to evaluate your learning.<br>
-      <img src="/app/src/main/assets/add-test.png" alt="Take Test" width="250" height="600">
+      <img src="/app/src/main/assets/add-test.png" alt="Take Test" width="250" height="500">
     </td>
   </tr>
   <tr>
     <td align="center">
       <strong>Assessment</strong><br>
       View your course performance and scores.<br>
-      <img src="/app/src/main/assets/assessment.png" alt="Assessment Section" width="250" height="600">
+      <img src="/app/src/main/assets/assessment.png" alt="Assessment Section" width="250" height="500">
     </td>
     <td align="center">
       <strong>Profile</strong><br>
       Access user credentials and administrative settings.<br>
-      <img src="/app/src/main/assets/profile.png" alt="Profile Section" width="250" height="600">
+      <img src="/app/src/main/assets/profile.png" alt="Profile Section" width="250" height="500">
     </td>
   </tr>
 </table>
